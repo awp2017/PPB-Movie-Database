@@ -1,0 +1,79 @@
+{% extends 'layout.html' %} 
+
+{% block title %}IMDB{% endblock %} 
+
+{% block content %}
+<div ="container" style="float:center;width=50%;displat:inline-block;">
+<h1>CinemaDatabase</h1>
+<!--<table class="table table-bordered table-hover">
+    <caption>List of all groups</caption>
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Responsible</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for group in groups %}
+        <tr>
+            <td>{{ group.pk }}</td>
+            <td>{{ group.name }}</td>
+            <td>{{ group.responsible }}</td>
+            <td>
+                <a href="{% url 'group_detail' pk=group.pk %}">
+                    <button class="btn btn-info">
+                        Detalii
+                    </button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>-->
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+		    <article>
+		        <div class="row">
+		            <div class="col-sm-6 col-md-4">
+		                <figure>
+		                    <img src="http://usbcode.ir/wp-content/uploads/2017/03/bootstrap.jpg">
+		                </figure>
+		            </div>
+		            <div class="col-sm-6 col-md-8">
+		                <span class="label label-default pull-right"><i class="glyphicon glyphicon-comment"></i> 49</span>
+		                <h4>Insidious: The Last Key</h4>
+		                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+		                <section>
+		                    <i class="glyphicon glyphicon-calendar"></i> 1395/12/21
+		                    <i class="glyphicon glyphicon-eye-open"></i> 10000
+		                </section>
+		            </div>
+		        </div>
+		    </article>
+		    <article>
+		        <div class="row">
+		            <div class="col-sm-6 col-md-4">
+		                <figure>
+		                    <img src="http://usbcode.ir/wp-content/uploads/2017/03/bootstrap.jpg">
+		                </figure>
+		            </div>
+		            <div class="col-sm-6 col-md-8">
+		                <span class="label label-default pull-right"><i class="glyphicon glyphicon-comment"></i> 50</span>
+		                <h4>Supernatural</h4>
+		                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+		                <section>
+		                    <i class="glyphicon glyphicon-calendar"></i> 1395/12/21
+		                    <i class="glyphicon glyphicon-eye-open"></i> 10000
+		                </section>
+		            </div>
+		        </div>
+		    </article>
+		 </div>
+    </div>
+</div>
+</div>
+{% endblock %}

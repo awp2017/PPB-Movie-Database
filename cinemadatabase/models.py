@@ -15,7 +15,7 @@ class Url(models.Model):
     source = models.CharField(max_length=500)
     
     def __str__(self):
-        return "an image source"
+        return self.source
 
 class Actor(models.Model):
     name = models.CharField(max_length=100)
@@ -32,19 +32,20 @@ class Film(models.Model):
     description = models.CharField(max_length=1000)
     cast = models.ManyToManyField(Actor)
     image = models.ForeignKey(Url)
-    category = models.ForeignKey(Category)
+    category = models.ManyToManyField(Category)
     
     def __str__(self):
         return self.name
         
 class Discussion(models.Model):
+    title = models.CharField(max_length=100)
     text = models.CharField(max_length=1000)
     created_date = models.DateTimeField(default=timezone.now)
     id_user = models.ForeignKey(User)
     id_film = models.ForeignKey(Film)
     
     def __str__(self):
-        return "a discussion"
+        return self.title
 
 class Comment(models.Model):
 	text = models.CharField(max_length=1000)

@@ -5,31 +5,25 @@
 {% block content %}
 
 <h1>PPB Movie Database</h1>
-<table class="table table-bordered table-hover">
-    <caption>List of all films</caption>
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Year</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for film in films %}
-        <tr>
-            <td>{{ film.pk }}</td>
-            <td>{{ film.name }}</td>
-            <td>{{ film.year }}</td>
-            <td>
-                <a href="{% url 'film_detail' pk=film.pk %}">
-                    <button class="btn btn-info">
-                        Detalii
-                    </button>
-                </a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% for film in films %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+		    <article>
+		        <div class="row">
+		            <div class="col-sm-6 col-md-4">
+		            </div>
+		            <div class="col-sm-6 col-md-8">
+		                <span class="label label-default pull-right"><i class="glyphicon glyphicon-comment"></i> 50</span>
+		                <h4>{{ film.name }}</h4>
+		                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+		                <section>
+		                    <i class="glyphicon glyphicon-calendar"></i> {{ film.year }}
+		                    <i class="glyphicon glyphicon-eye-open"></i> 10000
+		                    <a href="#" class="btn btn-default btn-sm pull-right">More ... </a>
+		                </section>
+		            </div>
+		        </div>
+		    </article>
+{% endfor %}
 {% endblock %}

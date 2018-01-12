@@ -40,6 +40,8 @@ urlpatterns = [
     url(r'^task/(?P<pk>[0-9]+)/$', 
         views.ActorDetailView.as_view(),
         name='actor_detail'),
+
+    url(r'^signup/$', core_views.signup, name='signup'),
         
     # url(r'^task/add/$', 
     #     views.TaskCreateView.as_view(),

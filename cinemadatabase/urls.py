@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from cinemadatabase import views
+from cinemadatabase import views as core_views
 
 
 urlpatterns = [

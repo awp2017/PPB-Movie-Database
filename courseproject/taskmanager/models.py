@@ -16,9 +16,10 @@ class Group(models.Model):
     def __str__(self):
         return self.name
         
-class Ceva(models.Model):
-
-
+class ceva (models.Model):      
+        def __str__(self):
+        return self.name
+        
 class Task(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=1000)

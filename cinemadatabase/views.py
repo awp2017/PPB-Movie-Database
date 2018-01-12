@@ -14,25 +14,25 @@ from django.urls import reverse
 
 
 
-from taskmanager.models import Task, Group
-from taskmanager.forms import TaskForm, LoginForm
+from cinemadatabase.models import Film,Actor
+from cinemadatabase.forms import LoginForm
 import json
 
 
 def my_view(request):
-    task_count = Task.objects.all().count()
+    film_count = Film.objects.all().count()
     return HttpResponse(
-        json.dumps({"count": task_count})
+        json.dumps({"count": film_count})
     )
 
 
 class MyView(View):
     def get(self, request, *args, **kwargs):
-        task_count = Task.objects.all().count()
+        film_count = Film.objects.all().count()
         return render(
             request, 
             'my-view-template.html',
-            context={'no_tasks': task_count}
+            context={'no_films': film_count}
         )
 
 
@@ -41,70 +41,70 @@ class MyTemplateView(TemplateView):
     
     def get_context_data(self, *args, **kwargs):
         context = super(MyTemplateView, self).get_context_data(*args, **kwargs)
-        context['no_tasks'] = Task.objects.all().count()
+        context['no_films'] = Film.objects.all().count()
         return context
         
 
-class GroupListView(ListView):
+class FilmListView(ListView):
     template_name = 'home.html'
-    model = Group
-    context_object_name = 'groups'
+    model = Film
+    context_object_name = 'films'
     
     def get_queryset(self, *args, **kwargs):
-        return Group.objects.filter(public=True)
+        return Film.objects.all()
     
     
-class GroupDetailView(LoginRequiredMixin, DetailView):
+class FilmDetailView(LoginRequiredMixin, DetailView):
     template_name = 'group.html'
-    model = Group
-    context_object_name = 'group'
+    model = Film
+    context_object_name = 'film'
     
 
-class TaskDetailView(LoginRequiredMixin, DetailView):
+class ActorDetailView(LoginRequiredMixin, DetailView):
     template_name = 'task.html'
-    model = Task
-    context_object_name = 'task'
+    model = Actor
+    context_object_name = 'actor'
 
 
-class TaskCreateView(LoginRequiredMixin, CreateView):
-    template_name = 'form.html'
-    form_class = TaskForm
-    model = Task
+# class TaskCreateView(LoginRequiredMixin, CreateView):
+#     template_name = 'form.html'
+#     form_class = TaskForm
+#     model = Task
     
-    def get_success_url(self, *args, **kwargs):
-        return reverse(
-            'task_detail', 
-            kwargs={
-                'pk': self.object.pk
-            }
-        )
+#     def get_success_url(self, *args, **kwargs):
+#         return reverse(
+#             'task_detail', 
+#             kwargs={
+#                 'pk': self.object.pk
+#             }
+#         )
 
 
-class TaskUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = 'form.html'
-    form_class = TaskForm
-    model = Task
+# class TaskUpdateView(LoginRequiredMixin, UpdateView):
+#     template_name = 'form.html'
+#     form_class = TaskForm
+#     model = Task
     
-    def get_success_url(self, *args, **kwargs):
-        return reverse(
-            'task_detail', 
-            kwargs={
-                'pk': self.object.pk
-            }
-        )
+#     def get_success_url(self, *args, **kwargs):
+#         return reverse(
+#             'task_detail', 
+#             kwargs={
+#                 'pk': self.object.pk
+#             }
+#         )
 
 
-class TaskDeleteView(LoginRequiredMixin, DeleteView):
-    template_name = 'delete.html'
-    model = Task
+# class TaskDeleteView(LoginRequiredMixin, DeleteView):
+#     template_name = 'delete.html'
+#     model = Task
     
-    def get_success_url(self, *args, **kwargs):
-        return reverse(
-            'group_detail', 
-            kwargs={
-                'pk': self.object.group.pk
-            }
-        )
+#     def get_success_url(self, *args, **kwargs):
+#         return reverse(
+#             'group_detail', 
+#             kwargs={
+#                 'pk': self.object.group.pk
+#             }
+#         )
 
 
 def login_view(request):
@@ -119,7 +119,7 @@ def login_view(request):
             if user:
                 login(request=request,
                       user=user)
-                return redirect('group_list')
+                return redirect('film_list')
             else:
                 context['error_message'] = 'Wrong username or password!'
     context['form'] = form

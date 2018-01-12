@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from taskmanager.models import Group, Task
+from cinemadatabase.models import Film,Actor
 # Register your models here.
 
-admin.site.register(Group)
-admin.site.register(Task)
+admin.site.register(Film)
+admin.site.register(Actor)

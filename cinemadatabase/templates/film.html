@@ -1,13 +1,13 @@
 {% extends 'layout.html' %} 
 
-{% block title %}{{ group.name }}{% endblock %} 
+{% block title %}{{ film.name }}{% endblock %} 
 
 {% block content %}
-<h1>{{ group.name }}</h1>
+<h1>{{ film.name }}</h1>
 
 <a href="{% url 'task_create' %}">
     <button class="btn btn-primary">
-        Add task
+        Add film
     </button>
 </a>
 
@@ -16,14 +16,13 @@
     <thead class="thead">
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Deadline</th>
-            <th scope="col">Responsible</th>
+            <th scope="col">Name</th>
+            <th scope="col">Year</th>
             <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
-        {% for task in group.task_set.all %}
+        {% for film in group.task_set.all %}
         <tr>
             <td>{{ task.pk }}</td>
             <td>{{ task.title }}</td>

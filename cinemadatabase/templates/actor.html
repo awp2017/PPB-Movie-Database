@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} 
+
+{% block title %}{{ actor.name }}{% endblock %} 
+
+{% block content %}
+<h1>{{ actor.name }}</h1>
+
+<div class="row">
+    <div class="col-sm-12 text-justify">
+        {{ actor.name }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <a href="{% url 'task_delete' pk=actor.pk %}">
+            <button class="btn btn-primary">
+                Delete
+            </button>
+        </a>
+    </div>
+    <div class="col-sm-6">
+        <div class="float-sm-right">
+            <a href="{% url 'task_update' pk=actor.pk %}">
+                <button class="btn btn-primary">
+                    Edit
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

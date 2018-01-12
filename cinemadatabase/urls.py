@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from taskmanager import views
+from cinemadatabase import views
 
 
 urlpatterns = [
@@ -30,26 +30,26 @@ urlpatterns = [
         name="logout"),
     
     url(r'^$', 
-        views.GroupListView.as_view(),
-        name='group_list'),
+        views.FilmListView.as_view(),
+        name='film_list'),
         
     url(r'^group/(?P<pk>[0-9]+)/$', 
-        views.GroupDetailView.as_view(),
-        name='group_detail'),
+        views.FilmDetailView.as_view(),
+        name='film_detail'),
         
     url(r'^task/(?P<pk>[0-9]+)/$', 
-        views.TaskDetailView.as_view(),
-        name='task_detail'),
+        views.ActorDetailView.as_view(),
+        name='actor_detail'),
         
-    url(r'^task/add/$', 
-        views.TaskCreateView.as_view(),
-        name='task_create'),
+    # url(r'^task/add/$', 
+    #     views.TaskCreateView.as_view(),
+    #     name='task_create'),
         
-    url(r'^task/(?P<pk>[0-9]+)/edit/$', 
-        views.TaskUpdateView.as_view(),
-        name='task_update'),
+    # url(r'^task/(?P<pk>[0-9]+)/edit/$', 
+    #     views.TaskUpdateView.as_view(),
+    #     name='task_update'),
         
-    url(r'^task/(?P<pk>[0-9]+)/delete/$', 
-        views.TaskDeleteView.as_view(),
-        name='task_delete'),
+    # url(r'^task/(?P<pk>[0-9]+)/delete/$', 
+    #     views.TaskDeleteView.as_view(),
+    #     name='task_delete'),
 ]

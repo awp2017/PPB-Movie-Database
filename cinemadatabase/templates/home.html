@@ -5,10 +5,10 @@
 {% block content %}
 
 <h1>PPB Movie Database</h1>
-{% for film in films %}
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+            {% for film in films %}
 		    <article>
 		        <div class="row">
 		            <div class="col-sm-6 col-md-4">
@@ -23,6 +23,6 @@
 		                </section>
 		            </div>
 		        </div>
+            {% endfor %}
 		    </article>
-{% endfor %}
 {% endblock %}

@@ -21,7 +21,7 @@ class Actor(models.Model):
     name = models.CharField(max_length=100)
     bio = models.CharField(max_length=2000)
     age = models.IntegerField(default=0)
-    image = models.FileField(upload_to="images")
+    image = models.FileField(upload_to="actors", default='/media/sample.jpg')
     
     def __str__(self):
         return self.name
@@ -31,7 +31,7 @@ class Film(models.Model):
     year = models.IntegerField()
     description = models.CharField(max_length=1000)
     cast = models.ManyToManyField(Actor)
-    image = models.FileField(upload_to="images")
+    image = models.FileField(upload_to="films", default='/media/sample.jpg')
     category = models.ManyToManyField(Category)
     
     def __str__(self):

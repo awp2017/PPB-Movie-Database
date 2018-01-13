@@ -168,3 +168,8 @@ class UserDetailView(DetailView):
     template_name = 'user.html'
     model = User
     context_object_name = 'user'
+
+def category(request):
+    object_list = Category.objects.all()
+    context = {'object_list': object_list,}
+    return render(request, 'category.html', context)

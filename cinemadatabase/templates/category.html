@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block title %}Categories{% endblock %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+     /*global $*/(document).on("click",".test",function(event){
+     $(".test").css({"display":"none"});
+     $(this).css({"display":"block"});
+ });
+</script>
+
+<div id="top"><center>Jump to {% for category in object_list %} <a style="padding:10px" href="#{{ category.name }}">#{{ category.name }}</a>{% endfor %}</center></div>
+
+{% for category in object_list %}
+   <div>
+   <span style="float:right;display:inline"><a href="#top">Go to top</a></span>
+   <center><h1 id="{{ category.name }}">{{ category.name }}</center></h1>
+   </div>
+   <div class="test" style="display:block">
+        {% for entry in category.film_set.all %}
+                	<article>
+                		 <div class="row panel panel-default">
+                		      <div class="col-lg-4 col-sm-4 col-md-4">
+                		           <img src="{{ entry.image.url }}">
+                		       </div>
+                		       <div class="col-lg-8 col-sm-8 col-md-8">
+                		           <h4> <a href="{% url 'film_detail' pk=entry.pk %}"> {{ entry.name }}</a></h4>
+                		           <p> {{ entry.description }} </p>
+                		           <section>
+                		                <i class="glyphicon glyphicon-calendar"></i> {{ entry.year }}
+                		              <!--{{ film.category.name }} -->
+                		           </section>
+                		       </div>
+                		</div>
+                	</article>
+        {% endfor %}
+        </div>
+{% endfor %}
+{% endblock content %}

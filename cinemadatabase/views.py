@@ -88,6 +88,8 @@ def search(request):
 		films = Film.objects.filter(name__icontains=q)	
 		return render(request, 'search.html',    
 			{'films': films})
+	else :
+	    return redirect('/')
 
 
 # class TaskCreateView(LoginRequiredMixin, CreateView):

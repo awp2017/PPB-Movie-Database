@@ -82,6 +82,15 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+from django.http import HttpResponse
+from django.shortcuts import render
+from cinemadatabase.models import Film
+def search(request):
+	if 'q' in request.GET and request.GET['q']:
+		q = request.GET['q']
+		films = Film.objects.filter(name__icontains=q)			      return render(request, 'search.html',    
+			{'films': films})
+
 
 # class TaskCreateView(LoginRequiredMixin, CreateView):
 #     template_name = 'form.html'

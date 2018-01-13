@@ -46,5 +46,6 @@ urlpatterns = [
         views.ActorDetailView.as_view(),
         name='actor_detail'),
 
-    url(r'^signup/$', core_views.signup, name='signup')
+    url(r'^signup/$', core_views.signup, name='signup'),
+    url(r'^search/$', views.search)
 ]

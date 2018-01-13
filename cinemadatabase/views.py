@@ -87,7 +87,7 @@ def signup(request):
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from cinemadatabase.models import Film
+from cinemadatabase.models import Film, Category
 def search(request):
 	if 'q' in request.GET and request.GET['q']:
 		q = request.GET['q']

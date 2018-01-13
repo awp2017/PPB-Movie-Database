@@ -11,7 +11,9 @@
           
                 <h4 class="media-heading">Starring: 
                     {% for actor in film.cast.all %}
-                   {{ actor.name }},
+                   {{ actor.name }}
+                   
+                   {% if not forloop.last%},{% endif%}
                     {% endfor %}
                 </h4>
             <div class="btn-group" style="float:right;">
@@ -20,17 +22,21 @@
         </div>
         <div class="panel-body">
             <div class="media">
-                <div class="media-left">
-                    <a href="#">
-                        <!-- #######POZA AICI ########-->
-                         </a>
+                
                 </div>
                 <div class="media-body">
                 <h4 class="media-heading">
                     {% for category in film.category.all %}
-                   {{ category.name }},
+                   {{ category.name }}
+                   {% if not forloop.last%},{% endif%}
                     {% endfor %}
                 </h4>
+                <div class="media-left">
+                        <div class="col-lg-4 col-sm-4 col-md-4">
+                    <a href="#">
+		           <img src="{{ film.image.url }}">
+		           </a>
+		       </div>
                 {{film.description}}
                 <div class="clearfix"></div>
                 <div class="btn-group" role="group">  </div>                 

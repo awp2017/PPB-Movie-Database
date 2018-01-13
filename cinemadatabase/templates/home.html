@@ -18,7 +18,10 @@
 		           <p> {{ film.description }} </p>
 		           <section>
 		                <i class="glyphicon glyphicon-calendar"></i> {{ film.year }}
-		                <i class="glyphicon glyphicon-eye-open"></i> {{ film.category.name }}
+		              <!--{{ film.category.name }} -->
+		              <div> {% for category in film.category.all %}
+                   			{{ category.name }},
+                    	{% endfor %}</div> 
 		           </section>
 		       </div>
 		   </div>

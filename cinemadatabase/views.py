@@ -16,6 +16,7 @@ from django.urls import reverse
 
 from cinemadatabase.models import Film,Actor,Discussion
 from cinemadatabase.forms import LoginForm
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 import json
 
@@ -161,3 +162,9 @@ def logout_view(request):
     if request.method == 'GET':
         logout(request)
         return redirect('login')
+
+
+class UserDetailView(DetailView):
+    template_name = 'user.html'
+    model = User
+    context_object_name = 'user'

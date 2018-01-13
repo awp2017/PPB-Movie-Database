@@ -38,8 +38,10 @@
         </li>
         {% else %}
         <li>
-            <!--<a href="{% url 'logout' %}">Logout</a>-->
-              <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> User    </a></li>
+              <a href="{%url 'user' pk=request.user.id %}"><li><span class="glyphicon glyphicon glyphicon-user"></span>
+              {{user.get_username}}
+              </li>
+              </a>
               <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout    </a></li>
         </li>
         {% endif %}

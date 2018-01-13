@@ -1,0 +1,13 @@
+{% extends 'layout.html' %} {% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+<h2> {{user.get_username}}</h2>
+
+<div>
+    {%for discussion in user.discussion_set.all%}
+        {{discussion.title}}
+    {%endfor%}
+</div>
+</div>
+{% endblock %}

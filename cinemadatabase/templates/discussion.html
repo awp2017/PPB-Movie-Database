@@ -5,6 +5,7 @@
 {% block content %}
 
 <div class="wrapper">
+    <a class="link" href="{% url 'film_detail' pk=discussion.film.pk %}"><span class="glyphicon glyphicon-chevron-left"></span> back to {{ discussion.film.name }}</a>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <div class="centered"><strong>{{ discussion.title }}</strong></div>

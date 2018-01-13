@@ -15,7 +15,7 @@
                         {{ discussion.comment_set.all.count }} comments
                     </div>
                     <div class="col-lg-4 col-md-4 discussion-item">
-                        <strong><a class="link" href="{% url 'discussion_detail' pk=discussion.pk %}"> {{ discussion.title }} </a> in {{discussion.film}}</strong>
+                        <strong><a class="link" href="{% url 'discussion_detail' pk=discussion.pk %}"> {{ discussion.title }} </a></strong> in <strong><a class="link" href="{% url 'film_detail' pk=discussion.film.pk %}">{{discussion.film}}</a></strong>
                     </div>
                     <div class="col-lg-2 col-md-2 discussion-item">
                         <strong>Made by: </strong> {{ discussion.user }}

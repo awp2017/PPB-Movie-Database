@@ -24,6 +24,12 @@ img {
     color: #696a6d;
 }
 
+.link:visited{
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .link:hover{
     color: black;
     cursor: pointer;

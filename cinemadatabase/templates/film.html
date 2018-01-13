@@ -11,10 +11,7 @@
           
                 <h4 class="media-heading">Starring: 
                     {% for actor in film.cast.all %}
-                   {{ actor.name }}
-                   
-                   {% if not forloop.last%},{% endif%}
-                    {% endfor %}
+                   <a href="{% url 'actor_detail' pk=actor.pk %}">{{ actor.name }}</a>{% if not forloop.last%},{% endif%}{% endfor %}
                 </h4>
             <div class="btn-group" style="float:right;">
            </div>
@@ -27,9 +24,7 @@
                 <div class="media-body">
                 <h4 class="media-heading">
                     {% for category in film.category.all %}
-                   {{ category.name }}
-                   {% if not forloop.last%},{% endif%}
-                    {% endfor %}
+                   {{ category.name }}{% if not forloop.last%},{% endif%}{% endfor %}
                 </h4>
                 <div class="media-left">
                         <div class="col-lg-4 col-sm-4 col-md-4">

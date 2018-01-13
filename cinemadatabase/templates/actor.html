@@ -1,33 +1,46 @@
 {% extends 'layout.html' %} 
 
-{% block title %}{{ actor.name }}{% endblock %} 
+{% block title %}{{ film.name }}{% endblock %} 
 
 {% block content %}
-<h1>{{ actor.name }}</h1>
-
-<div class="row">
-    <div class="col-sm-12 text-justify">
-        {{ actor.name }}
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6">
-        <a href="{% url 'task_delete' pk=actor.pk %}">
-            <button class="btn btn-primary">
-                Delete
-            </button>
-        </a>
-    </div>
-    <div class="col-sm-6">
-        <div class="float-sm-right">
-            <a href="{% url 'task_update' pk=actor.pk %}">
-                <button class="btn btn-primary">
-                    Edit
-                </button>
-            </a>
+<div>
+    <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1> {{ actor.name }} </h1> 
+          
+                <h4 class="media-heading">
+                    Age: {{actor.age}}
+                </h4>
+            <div class="btn-group" style="float:right;">
+           </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <div class="media">
+                
+                </div>
+                <div class="media-body">
+                <h4 class="media-heading">
+                    {% for category in film.category.all %}
+                   {{ category.name }}{% if not forloop.last%},{% endif%}{% endfor %}
+                </h4>
+                <div class="media-left">
+                        <div class="col-lg-4 col-sm-4 col-md-4">
+                    <a href="#">
+		           <img src="{{ actor.image.url }}">
+		           </a>
+		       </div>
+                {{actor.bio}}
+                <div class="clearfix"></div>
+                <div class="btn-group" role="group">  </div>                 
+               </div>
+                {% for film in films %}
+                {{film.name}}
+                {%endfor%}
+            </div>
         </div>
     </div>
 </div>
-
+</div>
 {% endblock %}

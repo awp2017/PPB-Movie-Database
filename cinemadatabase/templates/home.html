@@ -20,7 +20,7 @@
 		                <i class="glyphicon glyphicon-calendar"></i> {{ film.year }}
 		              <!--{{ film.category.name }} -->
 		              <div> {% for category in film.category.all %}
-                   			{{ category.name }},
+                   			{{ category.name }}{% if not forloop.last%},{%endif%}
                     	{% endfor %}</div> 
 		           </section>
 		       </div>

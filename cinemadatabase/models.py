@@ -10,12 +10,6 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
-        
-# class Url(models.Model):
-#     source = models.CharField(max_length=500)
-    
-#     def __str__(self):
-#         return self.source
 
 class Actor(models.Model):
     name = models.CharField(max_length=100)
@@ -41,8 +35,8 @@ class Discussion(models.Model):
     title = models.CharField(max_length=100)
     text = models.CharField(max_length=1000)
     created_date = models.DateTimeField(default=timezone.now)
-    id_user = models.ForeignKey(User)
-    id_film = models.ForeignKey(Film)
+    user = models.ForeignKey(User)
+    film = models.ForeignKey(Film)
     
     def __str__(self):
         return self.title
@@ -50,8 +44,8 @@ class Discussion(models.Model):
 class Comment(models.Model):
 	text = models.CharField(max_length=1000)
 	created_date = models.DateTimeField(default=timezone.now)
-	id_user = models.ForeignKey(User)
-	id_discussion = models.ForeignKey(Discussion)
+	user = models.ForeignKey(User)
+	discussion = models.ForeignKey(Discussion)
 	
 	def __str__(self):
 	    return "a comment"

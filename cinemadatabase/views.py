@@ -16,6 +16,7 @@ from django.urls import reverse
 
 from cinemadatabase.models import Film,Actor
 from cinemadatabase.forms import LoginForm
+from django.contrib.auth.forms import UserCreationForm
 import json
 
 
@@ -63,10 +64,6 @@ class ActorDetailView(DetailView):
     template_name = 'actor.html'
     model = Actor
     context_object_name = 'actor'
-
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
 
 def signup(request):
     if request.method == 'POST':

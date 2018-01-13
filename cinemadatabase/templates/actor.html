@@ -1,6 +1,6 @@
 {% extends 'layout.html' %} 
 
-{% block title %}{{ film.name }}{% endblock %} 
+{% block title %}{{ actor.name }}{% endblock %} 
 
 {% block content %}
 <div>
@@ -36,9 +36,31 @@
                 <div class="btn-group" role="group">  </div>                 
                </div>
                <div>
-                {% for film in films %}
-                {{ film.name }}
-                {%endfor%}
+                            
+                <div class="panel panel-default discussion-container">
+                    
+                            {% for film in actor.film_set.all %}
+                <div class="row discussion-container">
+                    <div class="col-lg-2 col-md-2 discussion-item">
+                      
+                    <a href="{% url 'film_detail' pk=film.pk %}">
+                         <img style="width:100px;" src="{{ film.image.url }}"> </a>
+                    </div>
+                    <div class="col-lg-2 col-md-2 discussion-item">
+		           
+                        <strong>
+                    <a href="{% url 'film_detail' pk=film.pk %}"> {{film.name}} </a></strong> <!---->
+                    <div>
+                    {% for category in film.category.all %}
+                   {{ category.name }}{% if not forloop.last%},{% endif%}{% endfor %}</div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 discussion-item">
+                        <strong>{{film.year}} </strong> <!---->
+                    </div>
+                </div>
+                
+            {% endfor %}
+    </div>
                  </div>
             </div>
         </div>

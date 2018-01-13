@@ -43,16 +43,6 @@
     <div class="panel panel-default discussion-container">
         {% if film.discussion_set.all %}
             {% for discussion in film.discussion_set.all %}
-                <!--<div class="panel panel-default discussion-item">-->
-                <!--    <div class="panel-heading centered">-->
-                <!--        <h2>{{ discussion.title }}</h2>-->
-                <!--    </div>-->
-                <!--    <div class="panel-body centered">-->
-                <!--        <strong>Made by: </strong>{{ discussion.user }}-->
-                <!--        <br>-->
-                <!--        <strong>Creation date: </strong>{{ discussion.created_date }}-->
-                <!--    </div>-->
-                <!--</div>-->
                 <div class="row discussion-container">
                     <div class="col-lg-2 col-md-2 discussion-item">
                         <span class="glyphicon glyphicon-list-alt"></span> | 

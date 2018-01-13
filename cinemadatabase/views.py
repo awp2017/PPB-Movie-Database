@@ -54,7 +54,7 @@ class FilmListView(ListView):
         return Film.objects.all()
     
     
-class FilmDetailView(LoginRequiredMixin, DetailView):
+class FilmDetailView(DetailView):
     template_name = 'film.html'
     model = Film
     context_object_name = 'film'

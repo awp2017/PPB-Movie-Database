@@ -5,9 +5,31 @@
 <h2> {{user.get_username}}</h2>
 
 <div>
-    {%for discussion in user.discussion_set.all%}
-        {{discussion.title}}
-    {%endfor%}
+        
+        <div class="panel panel-default discussion-container">
+        {% if user.discussion_set.all %}
+            {% for discussion in user.discussion_set.all %}
+                <div class="row discussion-container">
+                    <div class="col-lg-2 col-md-2 discussion-item">
+                        <span class="glyphicon glyphicon-list-alt"></span> | 
+                        {{ discussion.comment_set.all.count }} comments
+                    </div>
+                    <div class="col-lg-4 col-md-4 discussion-item">
+                        <strong><a class="link" href="{% url 'discussion_detail' pk=discussion.pk %}"> {{ discussion.title }} </a> in {{discussion.film}}</strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 discussion-item">
+                        <strong>Made by: </strong> {{ discussion.user }}
+                    </div>
+                    <div class="col-lg-4 col-md-4 discussion-item">
+                        <strong>Creation date: </strong> {{ discussion.created_date }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="centered">Nu ai luat parte la nicio discutie</div>
+        {% endif %}
+    </div>
+    
 </div>
 </div>
 {% endblock %}

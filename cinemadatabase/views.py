@@ -55,7 +55,7 @@ class FilmListView(ListView):
     
     
 class FilmDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'group.html'
+    template_name = 'film.html'
     model = Film
     context_object_name = 'film'
     

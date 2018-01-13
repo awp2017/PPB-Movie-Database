@@ -11,7 +11,10 @@
           
                 <h4 class="media-heading">Starring: 
                     {% for actor in film.cast.all %}
-                   <a href="{% url 'actor_detail' pk=actor.pk %}">{{ actor.name }}</a>{% if not forloop.last%},{% endif%}{% endfor %}
+                   {{ actor.name }}
+                   
+                   {% if not forloop.last%},{% endif%}
+                    {% endfor %}
                 </h4>
             <div class="btn-group" style="float:right;">
            </div>
@@ -24,20 +27,56 @@
                 <div class="media-body">
                 <h4 class="media-heading">
                     {% for category in film.category.all %}
-                   {{ category.name }}{% if not forloop.last%},{% endif%}{% endfor %}
+                   {{ category.name }}
+                   {% if not forloop.last%},{% endif%}
+                    {% endfor %}
                 </h4>
                 <div class="media-left">
                         <div class="col-lg-4 col-sm-4 col-md-4">
                     <a href="#">
 		           <img src="{{ film.image.url }}">
 		           </a>
-		       </div>
-                {{film.description}}
+		        </div>
+		        <div> {{film.description}} </div>
                 <div class="clearfix"></div>
                 <div class="btn-group" role="group">  </div>                 
                </div>
             </div>
         </div>
+    </div>
+    <h2 class="centered">Discussions</h2>
+    <div class="panel panel-default discussion-container">
+        {% if film.discussion_set.all %}
+            {% for discussion in film.discussion_set.all %}
+                <!--<div class="panel panel-default discussion-item">-->
+                <!--    <div class="panel-heading centered">-->
+                <!--        <h2>{{ discussion.title }}</h2>-->
+                <!--    </div>-->
+                <!--    <div class="panel-body centered">-->
+                <!--        <strong>Made by: </strong>{{ discussion.user }}-->
+                <!--        <br>-->
+                <!--        <strong>Creation date: </strong>{{ discussion.created_date }}-->
+                <!--    </div>-->
+                <!--</div>-->
+                <div class="row discussion-container">
+                    <div class="col-lg-2 col-md-2 discussion-item">
+                        <span class="glyphicon glyphicon-list-alt"></span> | 
+                        {{ discussion.comment_set.all.count }} comments
+                    </div>
+                    <div class="col-lg-4 col-md-4 discussion-item">
+                        <strong><a class="link" href="{% url 'discussion_detail' pk=discussion.pk %}"> {{ discussion.title }}</a></strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 discussion-item">
+                        <strong>Made by: </strong> {{ discussion.user }}
+                    </div>
+                    <div class="col-lg-4 col-md-4 discussion-item">
+                        <strong>Creation date: </strong> {{ discussion.created_date }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="centered">No discussions here</div>
+        {% endif %}
     </div>
 </div>
 </div>

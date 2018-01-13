@@ -7,3 +7,47 @@ img {
     width: 80%;
     margin: 0 auto;
 }
+
+.film-data{
+    margin-top: 50px;
+}
+
+.discussion-container{
+    padding: 10px;
+}
+
+.discussion-item{
+    border-radius: 6px;
+}
+
+.link{
+    color: #696a6d;
+}
+
+.link:hover{
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.discussion-item:hover{
+    background-color: #e8e9ea;
+}
+
+.centered{
+    text-align: center;
+}
+
+.comment-container{
+    padding: 5px;
+}
+
+.comment-item{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.additional-info:hover{
+    border-radius: 6px;
+    background-color: #eaecef;
+}

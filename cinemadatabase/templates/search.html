@@ -10,7 +10,7 @@
 		      <div class="col-lg-4 col-sm-4 col-md-4">
 		           <img src="{{ film.image.url }}">
 		       </div>
-		       <div class="col-lg-8 col-sm-8 col-md-8">
+		       <div class="col-lg-8 col-sm-8 col-md-8 film-data">
 		           <!--<span class="label label-default pull-right"><i class="glyphicon glyphicon-comment"></i> 50</span>-->
 		           <h4> <a href="{% url 'film_detail' pk=film.pk %}"> {{ film.name }}</a></h4>
 		           <p> {{ film.description }} </p>

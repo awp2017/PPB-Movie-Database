@@ -43,6 +43,7 @@ urlpatterns = [
         name='actor_detail'),
 
     url(r'^signup/$', core_views.signup, name='signup'),
+    
         
     # url(r'^task/add/$', 
     #     views.TaskCreateView.as_view(),

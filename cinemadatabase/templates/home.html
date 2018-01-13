@@ -12,14 +12,15 @@
 		    <article>
 		        <div class="row">
 		            <div class="col-sm-6 col-md-4">
+		            	<img src="{{ film.image.url }}" style="width:100%; heigth:100%">
 		            </div>
 		            <div class="col-sm-6 col-md-8">
 		                <!--<span class="label label-default pull-right"><i class="glyphicon glyphicon-comment"></i> 50</span>-->
-		                <h4>{{ film.name }}</h4>
-		                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+		                <h4> {{ film.name }} </h4>
+		                <p> {{ film.description }} </p>
 		                <section>
 		                    <i class="glyphicon glyphicon-calendar"></i> {{ film.year }}
-		                    <i class="glyphicon glyphicon-eye-open"></i> 10000
+		                    <i class="glyphicon glyphicon-eye-open"></i> {{ film.category.name }}
 		                </section>
 		            </div>
 		        </div>

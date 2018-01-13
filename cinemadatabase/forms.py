@@ -8,7 +8,7 @@ class FilmForm(forms.ModelForm):
     class Meta:
         model = Film
         fields = (
-            'name', 'year'
+            'name', 'year', 'image', 'description'
         )
 
 class LoginForm(forms.Form):

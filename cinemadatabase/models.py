@@ -11,17 +11,17 @@ class Category(models.Model):
     def __str__(self):
         return self.name
         
-class Url(models.Model):
-    source = models.CharField(max_length=500)
+# class Url(models.Model):
+#     source = models.CharField(max_length=500)
     
-    def __str__(self):
-        return self.source
+#     def __str__(self):
+#         return self.source
 
 class Actor(models.Model):
     name = models.CharField(max_length=100)
     bio = models.CharField(max_length=2000)
     age = models.IntegerField(default=0)
-    image = models.ForeignKey(Url)
+    image = models.FileField(upload_to="images")
     
     def __str__(self):
         return self.name
@@ -31,7 +31,7 @@ class Film(models.Model):
     year = models.IntegerField()
     description = models.CharField(max_length=1000)
     cast = models.ManyToManyField(Actor)
-    image = models.ForeignKey(Url)
+    image = models.FileField(upload_to="images")
     category = models.ManyToManyField(Category)
     
     def __str__(self):

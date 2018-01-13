@@ -33,7 +33,7 @@ class Film(models.Model):
         
 class Discussion(models.Model):
     title = models.CharField(max_length=100)
-    text = models.CharField(max_length=1000)
+    text = models.TextField(max_length=1000)
     created_date = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(User)
     film = models.ForeignKey(Film)
@@ -42,7 +42,7 @@ class Discussion(models.Model):
         return self.title
 
 class Comment(models.Model):
-	text = models.CharField(max_length=1000)
+	text = models.TextField(max_length=1000)
 	created_date = models.DateTimeField(default=timezone.now)
 	user = models.ForeignKey(User)
 	discussion = models.ForeignKey(Discussion)

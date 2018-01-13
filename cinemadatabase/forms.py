@@ -5,11 +5,11 @@ from cinemadatabase.models import Discussion, Comment
 
 class DiscussionForm(forms.Form):
     title = forms.CharField(max_length=100)
-    text = forms.CharField(max_length=1000)
+    text = forms.CharField(max_length=1000, widget=forms.Textarea(attrs={'cols': 22, 'rows': 8}))
     
     
 class CommentForm(forms.Form):
-    text = forms.CharField(max_length=1000)
+    text = forms.CharField(max_length=1000, widget=forms.Textarea(attrs={'cols': 22, 'rows': 8}))
 
 # class TaskForm(forms.ModelForm):
 #     deadline = forms.DateTimeField(input_formats=["%m/%d/%Y %I:%M %p"])

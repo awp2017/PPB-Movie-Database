@@ -34,17 +34,26 @@ urlpatterns = [
         views.FilmListView.as_view(),
         name='film_list'),
         
-    url(r'^group/(?P<pk>[0-9]+)/$', 
+    url(r'^film/(?P<pk>[0-9]+)/$', 
         views.FilmDetailView.as_view(),
         name='film_detail'),
-        
-    url(r'^task/(?P<pk>[0-9]+)/$', 
-        views.ActorDetailView.as_view(),
-        name='actor_detail'),
         
     url(r'^actor/(?P<pk>[0-9]+)/$', 
         views.ActorDetailView.as_view(),
         name='actor_detail'),
 
-    url(r'^signup/$', core_views.signup, name='signup')
+    url(r'^signup/$', core_views.signup, name='signup'),
+    
+        
+    # url(r'^task/add/$', 
+    #     views.TaskCreateView.as_view(),
+    #     name='task_create'),
+        
+    # url(r'^task/(?P<pk>[0-9]+)/edit/$', 
+    #     views.TaskUpdateView.as_view(),
+    #     name='task_update'),
+        
+    # url(r'^task/(?P<pk>[0-9]+)/delete/$', 
+    #     views.TaskDeleteView.as_view(),
+    #     name='task_delete'),
 ]

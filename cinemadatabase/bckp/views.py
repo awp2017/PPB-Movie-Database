@@ -59,6 +59,7 @@ class FilmDetailView(DetailView):
     model = Film
     context_object_name = 'film'
     
+
 class ActorDetailView(DetailView):
     template_name = 'actor.html'
     model = Actor

@@ -88,7 +88,8 @@ from cinemadatabase.models import Film
 def search(request):
 	if 'q' in request.GET and request.GET['q']:
 		q = request.GET['q']
-		films = Film.objects.filter(name__icontains=q)			      return render(request, 'search.html',    
+		films = Film.objects.filter(name__icontains=q)	
+		return render(request, 'search.html',    
 			{'films': films})
 
 

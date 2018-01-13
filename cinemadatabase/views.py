@@ -14,9 +14,11 @@ from django.urls import reverse
 
 
 
-from cinemadatabase.models import Film,Actor,Discussion
-from cinemadatabase.forms import LoginForm
+from cinemadatabase.models import Film,Actor,Discussion,Comment
+from cinemadatabase.forms import LoginForm, DiscussionForm, CommentForm
 from django.contrib.auth.models import User
+from django.utils import timezone
+from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 import json
 
@@ -96,6 +98,45 @@ def search(request):
 			{'films': films})
 	else :
 	    return redirect('/')
+
+def DiscussionCreateView(request, pk):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            form = DiscussionForm(request.POST)
+            if form.is_valid():
+                title = form.cleaned_data['title']
+                text = form.cleaned_data['text']
+                diner = Discussion.objects.create(
+                                user = request.user,
+                                title = title,
+                                text = text,
+                                created_date = timezone.now(),
+                                film = Film.objects.filter(id__iexact=pk).first())
+                return HttpResponseRedirect('/film/' + pk)
+        else:
+            form = DiscussionForm()
+        return render(request, 'create-discussion.html', {'form': form})
+    else:
+        return redirect(login_view)
+        
+def CommentCreateView(request, pk):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                text = form.cleaned_data['text']
+                diner = Comment.objects.create(
+                                user = request.user,
+                                text = text,
+                                created_date = timezone.now(),
+                                discussion = Discussion.objects.filter(id__iexact=pk).first())
+                return HttpResponseRedirect('/discussion/' + pk)
+        else:
+            form = CommentForm()
+        return render(request, 'create-comment.html', {'form': form})
+    else:
+        return redirect(login_view)
+
 
 
 # class TaskCreateView(LoginRequiredMixin, CreateView):

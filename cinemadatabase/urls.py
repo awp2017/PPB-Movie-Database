@@ -46,6 +46,14 @@ urlpatterns = [
         views.DiscussionDetailView.as_view(),
         name='discussion_detail'),
         
+    url(r'^create_discussion/(?P<pk>[0-9]+)/$', 
+    views.DiscussionCreateView,
+    name='discussion_create'),
+    
+    url(r'^create_comment/(?P<pk>[0-9]+)/$', 
+    views.CommentCreateView,
+    name='comment_create'),
+        
     url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^category/$', views.category),
     url(r'^search/$', views.search),

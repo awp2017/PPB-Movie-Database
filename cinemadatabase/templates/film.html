@@ -63,6 +63,7 @@
             <div class="centered">No discussions here</div>
         {% endif %}
     </div>
-</div>
+    <div class="centered add-discussion"><a href="{% url 'discussion_create' pk=film.pk %}" class="btn btn-primary">Add discussion</a></div>
+    </div>
 </div>
 {% endblock %}

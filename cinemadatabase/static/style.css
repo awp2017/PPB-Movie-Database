@@ -30,6 +30,11 @@ img {
     text-decoration: none;
 }
 
+.link:active{
+    text-decoration: none;
+    color: black;
+}
+
 .discussion-item:hover{
     background-color: #e8e9ea;
 }
@@ -45,6 +50,10 @@ img {
 .comment-item{
     margin-top: 3px;
     margin-bottom: 3px;
+}
+
+.additional-info{
+    border-right: 1px solid lightgray;
 }
 
 .additional-info:hover{

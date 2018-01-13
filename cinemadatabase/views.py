@@ -87,7 +87,7 @@ def signup(request):
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from cinemadatabase.models import Film
+from cinemadatabase.models import Film, Category
 def search(request):
 	if 'q' in request.GET and request.GET['q']:
 		q = request.GET['q']
@@ -168,3 +168,8 @@ class UserDetailView(DetailView):
     template_name = 'user.html'
     model = User
     context_object_name = 'user'
+
+def category(request):
+    object_list = Category.objects.all()
+    context = {'object_list': object_list,}
+    return render(request, 'category.html', context)
